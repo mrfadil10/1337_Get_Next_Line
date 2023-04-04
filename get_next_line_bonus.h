@@ -6,7 +6,7 @@
 /*   By: mfadil <mfadil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 02:27:22 by mfadil            #+#    #+#             */
-/*   Updated: 2023/04/03 21:32:14 by mfadil           ###   ########.fr       */
+/*   Updated: 2023/04/04 16:44:02 by mfadil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(char *s, int c);
 char	*get_next_line(int fd);
-char	*get_lines(char *left_str);
+char	*ft_line(char *str);
 char	*ft_new_left_str(char *left_str);
 char	*get_next_line(int fd);
 

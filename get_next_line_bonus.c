@@ -6,7 +6,7 @@
 /*   By: mfadil <mfadil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 02:26:46 by mfadil            #+#    #+#             */
-/*   Updated: 2023/04/04 02:05:40 by mfadil           ###   ########.fr       */
+/*   Updated: 2023/04/04 18:31:39 by mfadil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,32 @@ char	*read_fd(int fd, char *str)
 	return (str);
 }
 
+char	*ft_new_left_str(char *str)
+{
+	char	*s;
+	int		i;
+	int		j;
+
+	i = 0;
+	while (str[i] && str[i] != '\n')
+		i++;
+	if (!str[i])
+	{
+		free(str);
+		return (NULL);
+	}
+	s = (char *)malloc(sizeof(char) * (ft_strlen(str) - i + 1));
+	if (!s)
+		return (NULL);
+	i++;
+	j = 0;
+	while (str[i])
+		s[j++] = str[i++];
+	s[j] = '\0';
+	free(str);
+	return (s);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*str[OPEN_MAX];
@@ -53,7 +79,7 @@ char	*get_next_line(int fd)
 	str[fd] = read_fd(fd, str[fd]);
 	if (!str[fd])
 		return (NULL);
-	line = get_lines(str[fd]);
+	line = ft_line(str[fd]);
 	str[fd] = ft_new_left_str(str[fd]);
 	return (line);
 }
